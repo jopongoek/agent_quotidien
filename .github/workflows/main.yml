@@ -30,5 +30,5 @@ jobs:
           git config --local user.email "bot@github.com"
           git config --local user.name "GitHub Action Bot"
           git add journal_reponses.csv
-          git commit -m "Mise à jour quotidienne des réponses" || echo "Rien à committer"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/jopongoek/agent_quotidien.git HEAD:main
+          git diff-index --quiet HEAD || git commit -m "Mise à jour quotidienne des réponses"
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/jopongoek/agent_quotidien.git HEAD:master
